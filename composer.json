@@ -7,7 +7,7 @@
         "wordpress"
     ],
     "license": "MIT",
-    "homepage": "https://github.com/laraish/support",
+    "homepage": "https://github.com/seven-ario/laraish_support.git",
     "support": {
         "issues": "https://github.com/laraish/support/issues",
         "source": "https://github.com/laraish/support"
@@ -19,8 +19,8 @@
         }
     ],
     "require": {
-        "php": "^7.3",
-        "laraish/contracts": "^2.0"
+        "php": "^8.1.9",
+        "seven-ario/laraish_support": "master"
     },
     "autoload": {
         "psr-4": {
