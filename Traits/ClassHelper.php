@@ -12,18 +12,12 @@ trait ClassHelper
      * @param array $requiredProperties   The required properties(keys of $propertiesMap).
      * @param callable|null $errorMessage The callable to return a error message that will be shown when the required property is not defined.
      */
-    final protected function convertMapToProperties(
-        array $propertiesMap,
-        array $whiteListProperties,
-        array $requiredProperties = [],
-        callable $errorMessage = null
-    ) {
+    final protected function convertMapToProperties(array $propertiesMap, array $whiteListProperties, array $requiredProperties = [], callable $errorMessage = null)
+    {
         foreach ($requiredProperties as $requiredProperty) {
-            if (!array_key_exists($requiredProperty, $propertiesMap)) {
+            if ( ! array_key_exists($requiredProperty, $propertiesMap)) {
                 $defaultErrorMessage = "The `$requiredProperty` key is required.";
-                throw new \InvalidArgumentException(
-                    $errorMessage ? call_user_func_array($errorMessage, [$requiredProperty]) : $defaultErrorMessage
-                );
+                throw new \InvalidArgumentException($errorMessage ? call_user_func_array($errorMessage, [$requiredProperty]) : $defaultErrorMessage);
             }
         }
 
@@ -60,16 +54,13 @@ trait ClassHelper
      *
      * @return mixed
      */
-    final public static function deepCopy($object)
+    final static public function deepCopy($object)
     {
-        $newObject = clone $object;
+        $newObject        = clone $object;
         $objectProperties = get_object_vars($newObject);
 
         foreach ($objectProperties as $objectPropertyName => $objectPropertyValue) {
-            if (
-                is_object($objectPropertyValue) and !($objectPropertyValue instanceof \Closure) or
-                is_array($objectPropertyValue)
-            ) {
+            if ((is_object($objectPropertyValue) AND ! ($objectPropertyValue instanceof \Closure)) OR (is_array($objectPropertyValue))) {
                 $newObject->{$objectPropertyName} = unserialize(serialize($objectPropertyValue));
             }
         }
