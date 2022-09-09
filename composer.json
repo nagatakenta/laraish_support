@@ -19,8 +19,7 @@
         }
     ],
     "require": {
-        "php": "^8.1.9",
-        "seven-ario/laraish_contracts": "^1.0"
+        "php": "^8.1.9"
     },
     "autoload": {
         "psr-4": {
